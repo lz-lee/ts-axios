@@ -1,1 +1,2 @@
-# typescript axiox
+# ts-axios
+typescript axios
