@@ -1,4 +1,4 @@
-import { isDate, isObject } from "./util";
+import { isDate, isPlainObject } from "./util";
 
 function encode (val: string): string {
   return encodeURIComponent(val)
@@ -36,7 +36,7 @@ export function buildURL(url: string, params?: any) {
     values.forEach(v => {
       if (isDate(v)) {
         v = v.toISOString();
-      } else if (isObject(v)) {
+      } else if (isPlainObject(v)) {
         v = JSON.stringify(v)
       }
 

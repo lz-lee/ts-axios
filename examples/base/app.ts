@@ -1,4 +1,4 @@
-import  axios from '../../src/index';
+import axios from '../../src/index';
 
 axios({
   method: 'get',
@@ -43,3 +43,63 @@ axios({
   }
 });
 
+axios({
+  method: 'post',
+  url: '/base/post',
+  data: {
+    name: 'lee',
+    age: 27
+  }
+});
+
+axios({
+  method: 'post',
+  url: '/base/post',
+  data: {
+    name: 'lee',
+    age: 27
+  },
+  headers: {
+    'content-type': 'application/json;'
+  }
+});
+
+const arr = new Int32Array([12, 23]);
+
+axios({
+  method: 'post',
+  url: '/base/buffer',
+  data: arr
+});
+
+const paramsString = 'q=URLUtils.searchParams&topic=api';
+const searchParams = new URLSearchParams(paramsString);
+
+axios({
+  method: 'post',
+  url: '/base/post',
+  data: searchParams
+});
+
+const res = axios({
+  method: 'post',
+  url: '/base/post',
+  data: {
+    a: 1,
+    b: 2
+  }
+}).then(res => {
+  console.log(res)
+});
+
+const res2 = axios({
+  method: 'post',
+  url: '/base/post',
+  responseType: 'json',
+  data: {
+    a: 1,
+    b: 2
+  }
+}).then(res => {
+  console.log(res);
+});
