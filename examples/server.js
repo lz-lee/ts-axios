@@ -56,6 +56,24 @@ router.post('/base/buffer', function(req, res) {
 });
 
 
+router.get('/error/get', function(req, res) {
+  if (Math.random() > 0.5) {
+    res.json({
+      msg: 'xxxx'
+    });
+  } else {
+    res.status(500);
+    res.end();
+  }
+});
+
+router.get('/error/timeout', function(res, res) {
+  setTimeout(() => {
+    res.json({
+      msg: 'timeout timeout'
+    })
+  }, 3000);
+})
 app.use(router);
 
 module.exports = app.listen(port, () => {
